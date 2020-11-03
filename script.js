@@ -106,17 +106,31 @@ function deleteNumber() {
 }
 
 function sortArray() {
-    arr.sort(function (a, b) {
-        return a - b;
-    })
+    let equal;
+    for (let i = 0; i < arr.length; i++){
+        for (let j = i + 1; j < arr.length; j++){
+            if ( arr[i] > arr[j]){
+                equal = arr[i];
+                arr[i] = arr[j];
+                arr[j] = equal;
+            }
+        }
+    }
     document.getElementById('_sortArray').innerHTML = "Mảng có các phần tử: " + arr;
 }
 
 function pushNumber() {
+    let equal1;
     let number2 = prompt("Nhập phần tử thêm vào: ");
     arr.push(number2);
-    arr.sort(function (a, b) {
-        return a - b;
-    })
+    for (let i = 0; i < arr.length; i++){
+        for (let j = i + 1; j < arr.length; j++){
+            if ( arr[i] > arr[j]){
+                equal1 = arr[i];
+                arr[i] = arr[j];
+                arr[j] = equal1;
+            }
+        }
+    }
     document.getElementById('_pushArray').innerHTML = "Mảng có các phần tử: " + arr;
 }
